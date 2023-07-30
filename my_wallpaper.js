@@ -1,7 +1,7 @@
 //your parameter variables go here!
 let rect_width  = 20;
 let rect_height = 20;
-
+//
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
@@ -55,12 +55,22 @@ ellipse(x,y, 100,80)
 ellipse(x-21,y-30,15,50)
 ellipse(x+21,y-30,15,50)
 
-if(random(1) > 0.9){
-  fill(125, 162, 250)
+let randVar = random(1);
+
+if(randVar > 0.5){
+  fill(161, 208, 255)
 
 }else{
 //yellow eyes
 fill (EyeYelR, EyeYelG, EyeYelB)
+}
+
+if(randVar > 0.7){
+  fill(235, 129, 208)
+}
+
+if(randVar > 0.9){
+  fill(132, 217, 142)
 }
 
 ellipse(x-25,y-5,30,30)
