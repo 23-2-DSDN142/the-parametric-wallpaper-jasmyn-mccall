@@ -4,7 +4,7 @@ let rect_height = 20;
 
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GRID_WALLPAPER);
   pWallpaper.resolution(FIT_TO_SCREEN);
   pWallpaper.show_guide(true); //set this to false when you're ready to print
 
@@ -55,9 +55,14 @@ ellipse(x,y, 100,80)
 ellipse(x-21,y-30,15,50)
 ellipse(x+21,y-30,15,50)
 
+if(random(1) > 0.9){
+  fill(125, 162, 250)
 
+}else{
 //yellow eyes
 fill (EyeYelR, EyeYelG, EyeYelB)
+}
+
 ellipse(x-25,y-5,30,30)
 ellipse(x+25,y-5,30,30)
 ellipse(x-25,y-1,34,21)
