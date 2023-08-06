@@ -6,11 +6,11 @@ let rect_height = 20;
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
   pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(true); //set this to false when you're ready to print
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
-  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.cell_height = 170;
   pWallpaper.grid_settings.row_offset  = 100;
 }
 // main fur colour
@@ -38,8 +38,34 @@ function wallpaper_background() {
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
   noStroke()
-fill (CatColR,CatColG,CatColB)
+
+
+
+//bow 
+let BowRan = random(1);
+
+if (BowRan > 0.5)
+  {fill(16, 2, 171)
+}else{
+  fill (171, 2, 2)
+  }
+ellipse(x-15,y+38,30,25)
+ellipse(x+15,y+38,30,25)
+ellipse(x-5,y+49,10)
+ellipse(x+5,y+49,10)
+ellipse(x,y+40,23)
+
+fill(EyeYelR, EyeYelG, EyeYelB)
+ellipse(x,y+46,10)
+
+fill(CatColR,CatColG,CatColB)
+rect(x-2,y+47,4,1)
+ellipse(x-2,y+47,3)
+ellipse(x+2,y+47,3)
+
+
 //ears
+fill (CatColR,CatColG,CatColB)
 triangle(x+2,y-30,x+35,y-105,x+49,y-8)
 triangle(x-2,y-30,x-35,y-105,x-49,y-8)
 
@@ -93,10 +119,18 @@ fill(255)
 ellipse(x-22,y-11,3,3)
 ellipse(x+22,y-11,3,3)
 
+//mouth
 fill(0)
 ellipse(x+5,y+14,10,10)
 ellipse(x-5,y+14,10,10)
 ellipse(x,y+15,13,12)
+
+fill(64, 7, 32)
+ellipse(x,y+19,9,4)
+fill(255)
+ellipse(x-5,y+16,2,4)
+ellipse(x+5,y+16,2,4)
+
 fill(CatColR,CatColG,CatColB)
 ellipse(x+7,y+12,10,10)
 ellipse(x-7,y+12,10,10)
@@ -108,5 +142,3 @@ ellipse(x,y+10,10,5)
 
 
 }
-
-
