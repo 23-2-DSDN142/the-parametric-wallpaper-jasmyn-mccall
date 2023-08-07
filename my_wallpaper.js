@@ -5,15 +5,18 @@ let rect_height = 20;
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(FIT_TO_SCREEN);
+  pWallpaper.resolution(A3);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
-  //Grid settings
+    // //Grid settings
+  // pWallpaper.grid_settings.cell_width  = 200;
+  // pWallpaper.grid_settings.cell_height = 170;
+  // pWallpaper.grid_settings.row_offset  = 100;
   pWallpaper.grid_settings.cell_width  = 200;
-  pWallpaper.grid_settings.cell_height = 170;
+  pWallpaper.grid_settings.cell_height = 200;
   pWallpaper.grid_settings.row_offset  = 100;
 }
-// main fur colour
+// main fur colour (31,22,43)
 let CatColR = 31
 let CatColG = 22
 let CatColB = 43
@@ -21,7 +24,7 @@ let CatColB = 43
 let EyeYelR = 255
 let EyeYelG = 182
 let EyeYelB = 25
-// secound colour
+// secound colour (80,47,94)(245,171,222)
 let SecColR = 80
 let SecColG = 47
 let SecColB = 94
@@ -32,6 +35,18 @@ let NosColB = 49
 // head location
 let x = 100
 let y = 120
+//eye direction (22)
+let eyeR = x+22
+let eyeL = x-22
+//ear height (110)(100)
+let earY = y-110;
+let earMid = 100
+
+let eyesmile = false
+let lazyeye = false
+
+
+
 function wallpaper_background() {
   background(215,166,245); 
 }
@@ -40,9 +55,10 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   noStroke()
 
 
-
+  //let BowRan = random(1);
 //bow 
 let BowRan = random(1);
+//let BowRan = 1
 
 if (BowRan > 0.5)
   {fill(16, 2, 171)
@@ -66,12 +82,12 @@ ellipse(x+2,y+47,3)
 
 //ears
 fill (CatColR,CatColG,CatColB)
-triangle(x+2,y-30,x+35,y-105,x+49,y-8)
-triangle(x-2,y-30,x-35,y-105,x-49,y-8)
+triangle(x+2,y-30,x+35,earY,x+49,y-8)
+triangle(x-2,y-30,x-35,earY,x-49,y-8)
 
 fill(SecColR,SecColG,SecColB)
-ellipse(x-31,y-30,20,100)
-ellipse(x+31,y-30,20,100)
+ellipse(x-31,y-30,20,earMid)
+ellipse(x+31,y-30,20,earMid)
 
 //head
 fill (CatColR,CatColG,CatColB)
@@ -82,6 +98,7 @@ ellipse(x-21,y-30,15,50)
 ellipse(x+21,y-30,15,50)
 
 let randVar = random(1);
+//let randVar = 0.4;
 
 if(randVar > 0.5){
   fill(161, 208, 255)
@@ -104,20 +121,26 @@ ellipse(x+25,y-5,30,30)
 ellipse(x-25,y-1,34,21)
 ellipse(x+25,y-1,34,21)
 
+
 //eye black
 fill(0)
-ellipse(x+22,y-8,10,15)
-ellipse(x-22,y-8,10,15)
+ellipse(eyeR,y-8,10,15)
+ellipse(eyeL,y-8,10,15)
 
 //secound eye colour
-fill(SecColR,SecColG,SecColB)
-ellipse(x-22, y-5,8,8)
-ellipse(x+22,y-5,8,8)
+if(SecColR == 245){
+  fill(31,22,43)
+}
+else{
+  fill(SecColR,SecColG,SecColB)
+}
+ellipse(eyeL, y-5,8,8)
+ellipse(eyeR,y-5,8,8)
 
 //eyeshine
 fill(255)
-ellipse(x-22,y-11,3,3)
-ellipse(x+22,y-11,3,3)
+ellipse(eyeL,y-11,3,3)
+ellipse(eyeR,y-11,3,3)
 
 //mouth
 fill(0)
@@ -132,11 +155,23 @@ ellipse(x-5,y+16,2,4)
 ellipse(x+5,y+16,2,4)
 
 fill(CatColR,CatColG,CatColB)
-ellipse(x+7,y+12,10,10)
-ellipse(x-7,y+12,10,10)
+ellipse(x+7,y+12,12,10)
+ellipse(x-7,y+12,12,10)
 //nose
 fill(NosColR,NosColG,NosColB)
 ellipse(x,y+10,10,5)
+
+
+if (eyesmile == true)
+{fill(CatColR,CatColG,CatColB)
+  ellipse(x-25,y+9,35,20)
+  ellipse(x+25,y+9,35,20)}
+
+if (lazyeye == true)
+{fill(CatColR,CatColG,CatColB)
+  rect(x-45,y-20,40,15)
+  rect(x+5,y-20,40,15)}
+
 
 
 
