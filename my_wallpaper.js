@@ -4,8 +4,8 @@ let rect_height = 20;
 //
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(A3);
+  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.resolution(FIT_TO_SCREEN);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
     // //Grid settings
@@ -17,17 +17,17 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.grid_settings.row_offset  = 100;
 }
 // main fur colour (31,22,43)
-let CatColR = 31
-let CatColG = 22
-let CatColB = 43
+let CatColR = 255
+let CatColG = 255
+let CatColB = 255
 // main eye colour
 let EyeYelR = 255
 let EyeYelG = 182
 let EyeYelB = 25
 // secound colour (80,47,94)(245,171,222)
-let SecColR = 80
-let SecColG = 47
-let SecColB = 94
+let SecColR = 245
+let SecColG = 171
+let SecColB = 222
 //nose
 let NosColR = 97
 let NosColG = 12
@@ -36,11 +36,11 @@ let NosColB = 49
 let x = 100
 let y = 120
 //eye direction (22)
-let eyeR = x+22
-let eyeL = x-22
+let eyeR = x+30
+let eyeL = x-16
 //ear height (110)(100)
-let earY = y-110;
-let earMid = 100
+let earY = y-80;
+let earMid = 60
 
 let eyesmile = false
 let lazyeye = false
